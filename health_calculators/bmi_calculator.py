@@ -5,7 +5,6 @@ from config import parse
 from health_calculators.health_calculator_base import HealthCalculatorBase
 
 # OOP inheritance 
-# 
 class BmiCalculator(HealthCalculatorBase):
     def __init__(self):
 # calls the parent class constructor
@@ -18,11 +17,21 @@ class BmiCalculator(HealthCalculatorBase):
         super().welcome(name)
        
     def input_parameters(self):
+        """input_parameters get the parameters for bmi calculation
+        """        ''''''
         self.person.set_height = float(
             input("Please input your height in cm: "))
         self.person.set_weight = float(input("and your weight in kg: "))
 
     def calc(self):
+        """calc the bmi calculation
+
+        Raises:
+            ValueError: if numbers are below 0
+
+        Returns:
+            float: the value of the indicator
+        """        ''''''
         # raise a specific error if values are not correct
         if self.person.weight < 0 or self.person.height < 0:
             raise ValueError("Sorry, no numbers below zero")
@@ -32,6 +41,12 @@ class BmiCalculator(HealthCalculatorBase):
             return bmi
 
     def analyze(self, bmi, calculator_table):
+        """analyze display a message corresponding to the bmi value
+
+        Args:
+            bmi (float): the indicator value
+            calculator_table (dict): a table providing messages when bmi is in a range
+        """        ''''''
         params = parse("database.ini", "postgresql")
         try:
             # **params means unpacking dictionary
@@ -50,5 +65,5 @@ class BmiCalculator(HealthCalculatorBase):
     # *message means unpacking tuple
             return str(*message)
 
-    def save(self, bmi):
-       super().save(bmi)
+    def save(self, bmi):       
+        super().save(bmi)

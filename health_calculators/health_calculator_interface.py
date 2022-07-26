@@ -34,8 +34,8 @@ class HealthCalculatorInterface(ABC):
     def calc(self):
         pass
 
-# OOP polymorphism at a method level
-# method overloading (different signature) 
+# OOP polymorphism at a method level, need package 'multipledispatch'
+# method overloading (different signatures) 
     @dispatch(str, str)
     @abstractmethod
     def analyze(self, result, calculator_table):

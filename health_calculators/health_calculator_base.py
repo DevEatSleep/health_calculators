@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 from health_calculators.health_calculator_interface import HealthCalculatorInterface
 
-
+# base class is needed because 2 methods are the same for all calculators
 class HealthCalculatorBase(HealthCalculatorInterface):
     def __init__(self, name):
         # calls the parent class constructor
@@ -18,6 +18,11 @@ class HealthCalculatorBase(HealthCalculatorInterface):
               (self.person.name, self.name))
 
     def save(self, indicator):
+        """save save indicator to text file
+
+        Args:
+            indicator (float): indicator value
+        """        ''''''
         now = datetime.now()
         today_str = now.strftime("%d-%m-%Y")
         document_path = os.path.expanduser('~\Documents')

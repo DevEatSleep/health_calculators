@@ -21,9 +21,9 @@ class IbwCalculator(HealthCalculatorBase):
     def input_parameters(self):
         gender = str(input("Are you a woman (1) or a man (2) ?\n"))
         if(gender == "1"):
-            self.person = Woman(self.person.nam)
+            self.person = Woman(self.person.name)
         if(gender == "2"):
-            self.person = Man(self.person.nam)
+            self.person = Man(self.person.name)
         self.person.set_height = float(
             input("Please input your height in cm: ")) 
         self.person.set_weight = float(input("and your weight in kg: "))      
