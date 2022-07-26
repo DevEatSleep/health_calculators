@@ -41,6 +41,8 @@ def main():
         print(result_message)
 # check the existence of a local variable
         if 'calculator_table' in locals():
+        # differents analyze methods are only implemented to demonstrate overloading, 
+        # this could be replaced in a better way by an analyzer interface          
             status_msg = calculator.analyze(health_indicator, calculator_table)
         else:
             status_msg = calculator.analyze(calculator.person.weight, health_indicator)
