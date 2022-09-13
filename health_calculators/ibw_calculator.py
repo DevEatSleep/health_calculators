@@ -16,7 +16,7 @@ class IbwCalculator(HealthCalculatorBase):
         self.person = person
 
     def welcome(self, name):
-        super().welcome(name)
+        super()._welcome(name)
     
     def input_parameters(self):
         gender = str(input("Are you a woman (1) or a man (2) ?\n"))
@@ -28,7 +28,7 @@ class IbwCalculator(HealthCalculatorBase):
             input("Please input your height in cm: ")) 
         self.person.set_weight = float(input("and your weight in kg: "))      
 
-    def calc(self):
+    def calc(self) -> float:
         # raise a specific error if values are not correct
         if self.person.height < 0:
             raise ValueError("Sorry, no numbers below zero")
@@ -38,11 +38,11 @@ class IbwCalculator(HealthCalculatorBase):
             ibw = (self.person.height - 100) - ((self.person.height - 150) / factor)
             return ibw
 
-    def analyze(self, current_weight, ideal_weight):
+    def analyze(self, current_weight, ideal_weight) -> str:
         if current_weight > ideal_weight:
             return "Sorry, you're overweight"
         if current_weight <= ideal_weight:
             return "Cool, you're not overweight!"
 
     def save(self, ibw):
-       super().save(ibw)
+       super()._save(ibw)

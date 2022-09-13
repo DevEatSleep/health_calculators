@@ -13,11 +13,11 @@ class HealthCalculatorBase(HealthCalculatorInterface):
         self.person = person
 # welcome and save methods are the save for all calculators
 
-    def welcome(self, name):
+    def _welcome(self, name):
         print("Welcome %s to my %s calculator !\n" %
               (self.person.name, self.name))
 
-    def save(self, indicator):
+    def _save(self, indicator):
         """save save indicator to text file
 
         Args:

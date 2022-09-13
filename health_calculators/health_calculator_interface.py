@@ -5,21 +5,21 @@ from multipledispatch import dispatch
 # interface is just entry points, implementation is in derived classes
 class HealthCalculatorInterface(ABC):
     def __init__(self, name):
-        self._name = name
+        self.__name = name
 
 # OOP encapsulation 
 # @property hides the private variable (not really hidden in Python)
     @property
     def name(self):
-        return self._name
+        return self.__name
 # getter is to read property value (getter keyword is optional)
     @property
     def person(self):
-        return self._person
+        return self.__person
 # setter is to set property value
     @person.setter
     def set_person(self, person):
-        self._person = person
+        self.__person = person
 
     @abstractmethod
     def welcome(self, name):

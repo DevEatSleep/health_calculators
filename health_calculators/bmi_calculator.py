@@ -14,7 +14,7 @@ class BmiCalculator(HealthCalculatorBase):
         self.person = person
 
     def welcome(self, name):
-        super().welcome(name)
+        super()._welcome(name)
        
     def input_parameters(self):
         """input_parameters get the parameters for bmi calculation
@@ -23,7 +23,7 @@ class BmiCalculator(HealthCalculatorBase):
             input("Please input your height in cm: "))
         self.person.set_weight = float(input("and your weight in kg: "))
 
-    def calc(self):
+    def calc(self) -> float:
         """calc the bmi calculation
 
         Raises:
@@ -40,13 +40,17 @@ class BmiCalculator(HealthCalculatorBase):
             bmi = self.person.weight / (self.person.height/100)**2
             return bmi
 
-    def analyze(self, bmi, calculator_table):
+    def analyze(self, bmi, calculator_table) -> str:
         """analyze display a message corresponding to the bmi value
+
 
         Args:
             bmi (float): the indicator value
             calculator_table (dict): a table providing messages when bmi is in a range
-        """        ''''''
+
+        Returns:
+            str: the message
+        """               
         params = parse("database.ini", "postgresql")
         try:
             # **params means unpacking dictionary
@@ -66,4 +70,4 @@ class BmiCalculator(HealthCalculatorBase):
             return str(*message)
 
     def save(self, bmi):       
-        super().save(bmi)
+        super()._save(bmi)

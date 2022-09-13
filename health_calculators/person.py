@@ -4,24 +4,24 @@ class Person:
     # self means pointer to the class instance
     def __init__(self, name):
         self.name = name
-        self._height = float()
-        self._weight = float()
+        self.__height = float()
+        self.__weight = float()
 
     def get_ideal_weight_factor(self):
         pass
 
     @property
-    def weight(self):
-        return self._weight
+    def weight(self) -> float:
+        return self.__weight
 
     @weight.setter
     def set_weight(self, weight):
-        self._weight = weight
+        self.__weight = weight
 
     @property
-    def height(self):
-        return self._height
+    def height(self) -> float:
+        return self.__height
 
     @height.setter
     def set_height(self, height):
-        self._height = height
+        self.__height = height
