@@ -11,7 +11,7 @@ class HealthCalculatorBase(HealthCalculatorInterface):
 
     def person(self, person):
         self.person = person
-# welcome and save methods are the save for all calculators
+# welcome and save methods are the same for all calculators
 
     def _welcome(self, name):
         print("Welcome %s to my %s calculator !\n" %
